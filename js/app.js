@@ -18,7 +18,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.speed * dt;
 
-    if (this.x >= 505) {
+    if (this.x >= 500) {
         this.x = 0;
     }
 
@@ -31,8 +31,9 @@ Enemy.prototype.render = function() {
 };
 
 var Player = function(x, y, speed) {
-    this.x = x;
     this.y = y;
+    this.x = x;
+    
     this.speed = speed;
     this.sprite = 'images/char-princess-girl.png';
 };
@@ -47,19 +48,18 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(keyPress) {
+     if (keyPress == 'up') {
+        player.y -= player.speed - 30;
+    }
     if (keyPress == 'left') {
         player.x -= player.speed;
     }
-    if (keyPress == 'up') {
-        player.y -= player.speed - 20;
+     if (keyPress == 'down') {
+        player.y += player.speed - 20;
     }
     if (keyPress == 'right') {
         player.x += player.speed;
     }
-    if (keyPress == 'down') {
-        player.y += player.speed - 20;
-    }
-    console.log('keyPress is: ' + keyPress);
 };
 
 var displayScoreLevel = function(aScore, aLevel) {
@@ -79,12 +79,12 @@ var checkCollision = function(anEnemy) {
         && player.x + 76 >= anEnemy.x + 11) {
         console.log('collided');
         player.x = 202.5;
-        player.y = 383;
+        player.y = 370;
     }
 
     if (player.y + 63 <= 0) {        
         player.x = 202.5;
-        player.y = 383;
+        player.y = 370;
         console.log('you made it!');
 
         ctx.fillStyle = 'white';
@@ -92,13 +92,12 @@ var checkCollision = function(anEnemy) {
 
         score += 1;
         gameLevel += 1;
-        console.log('current score: ' + score + ', current level: ' + gameLevel);
         increaseDifficulty(score);
 
     }
 
-    if (player.y > 383 ) {
-        player.y = 383;
+    if (player.y > 370 ) {
+        player.y = 370;
     }
     if (player.x > 402.5) {
         player.x = 402.5;
