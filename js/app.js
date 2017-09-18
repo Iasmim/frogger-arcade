@@ -68,7 +68,7 @@ var displayScoreLevel = function(aScore, aLevel) {
 
     scoreLevelDiv.innerHTML = 'Score: ' + aScore
         + ' / ' + 'Level: ' + aLevel;
-    document.body.insertAfter(scoreLevelDiv, firstCanvasTag[0]);
+    document.body.insertBefore(scoreLevelDiv, firstCanvasTag[0]);
 };
 
 var checkCollision = function(anEnemy) {
