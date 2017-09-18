@@ -79,12 +79,12 @@ var checkCollision = function(anEnemy) {
         && player.x + 76 >= anEnemy.x + 11) {
         console.log('collided');
         player.x = 202.5;
-        player.y = 370;
+        player.y = 380;
     }
 
     if (player.y + 63 <= 0) {        
         player.x = 202.5;
-        player.y = 370;
+        player.y = 380;
         console.log('you made it!');
 
         ctx.fillStyle = 'white';
@@ -96,8 +96,8 @@ var checkCollision = function(anEnemy) {
 
     }
 
-    if (player.y > 370 ) {
-        player.y = 370;
+    if (player.y > 380 ) {
+        player.y = 380;
     }
     if (player.x > 402.5) {
         player.x = 402.5;
@@ -123,7 +123,7 @@ var increaseDifficulty = function(numEnemies) {
 // Enemy randomly placed vertically within section of canvas
 // Declare new score and gameLevel variables to store score and level
 var allEnemies = [];
-var player = new Player(202.5, 383, 50);
+var player = new Player(202.5, 380, 50);
 var score = 0;
 var gameLevel = 1;
 var scoreLevelDiv = document.createElement('div');
